@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
-	WebbridgeProvider,
-	loadWebbridge,
-	useActions,
-	useVariables
-} from 'tapcart-codeblocks-sdk-test'
+import { useActions, useVariables } from 'tapcart-codeblocks-sdk-test'
 
 const TapcartBlock = () => {
 	const variables = useVariables()
@@ -322,14 +317,6 @@ const TapcartBlock = () => {
 	)
 }
 
-const Wrapper = () => {
-	const webbridgeClient = loadWebbridge({ test: false })
 
-	return (
-		<WebbridgeProvider webbridgeClient={webbridgeClient}>
-			<TapcartBlock />
-		</WebbridgeProvider>
-	)
-}
 
-export default Wrapper
+export default TapcartBlock
