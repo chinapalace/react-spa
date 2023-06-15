@@ -7074,10 +7074,10 @@ tailwindcss@3.3.2:
     resolve "^1.22.2"
     sucrase "^3.32.0"
 
-tapcart-codeblocks-sdk-test@^1.2.6:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/tapcart-codeblocks-sdk-test/-/tapcart-codeblocks-sdk-test-1.2.6.tgz#32530d28b44bf3053b2575ce15c1907445828388"
-  integrity sha512-TJztu/zT7aDjrWBhI7KR3/drVSh7NjSTfSaUNNbA4Intp3uAMHjE8zVkpRUyFhH8uLCSfj5TGU4lnkNx7u/5Yg==
+tapcart-codeblocks-sdk-test@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/tapcart-codeblocks-sdk-test/-/tapcart-codeblocks-sdk-test-1.2.7.tgz#c75ce3a1aef7756b3f3f093ebb96e42c2e04ea10"
+  integrity sha512-Gyq+Pv/Ct0WwV/I5waOiDmxwlsnUxkRhc9Pq2Klh75FuZ9dOam4RrkNtVpkYfLqw+CjUxmc5r1q/O/nGCTWP9A==
   dependencies:
     handlebars "^4.7.7"
     nanoid "^3.3.2"
