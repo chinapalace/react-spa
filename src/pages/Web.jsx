@@ -280,18 +280,20 @@ const TapcartBlock = () => {
 						value={cartVariantId}
 						onChange={handleCartVariantIdChange}
 						className='rounded bg-white px-3 py-2 text-black'
-						placeholder='Enter variant ID (optional)'
+						placeholder='Enter variant ID (required)'
 					/>
 				</div>
 
 				<div className='flex flex-wrap justify-around'>
 					<button
 						className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
-						onClick={() =>
-							actions.addToCart({
-								lineItems: [{ variantId, quantity }]
-							})
-						}
+						onClick={() => {
+							const val = {
+								cartAttributes: [{ key: 'test', value: 'test' }],
+								lineItems: [{ variantId: cartVariantId, quantity }]
+							}
+							return actions.addToCart(val)
+						}}
 					>
 						Add To Cart
 					</button>
