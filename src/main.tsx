@@ -3,9 +3,12 @@ import App from 'App'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { registerSW } from 'virtual:pwa-register'
+import packageData from '../package.json'
 import './index.css'
 
 registerSW()
+
+console.log(`%c v${packageData.version}`, `font-weight: 700; color: #555;`)
 
 const MAX_RETRIES = 1
 const queryClient = new QueryClient({
