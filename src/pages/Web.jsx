@@ -50,7 +50,7 @@ const TapcartBlock = () => {
 
 	// Handlers
 	const handleQuantityChange = event => {
-		setQuantity(event.target.value)
+		setQuantity(Number(event.target.value))
 	}
 
 	const handleCartVariantIdChange = event => {
