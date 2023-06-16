@@ -67,12 +67,12 @@ const TapcartBlock = () => {
 
 	return (
 		<div className='mx-auto max-w-xl px-5 font-sans text-sm text-white'>
-			<h2 className='py-2 text-black'>Variables</h2>
+			<h2 className='py-2 text-white'>Variables</h2>
 			<div className='mb-2 rounded bg-gray-800 p-5'>
 				<pre>{variablesState}</pre>
 			</div>
 
-			<h2 className='py-2 text-black'>Discount Inputs & Actions</h2>
+			<h2 className='py-2 text-white'>Discount Inputs & Actions</h2>
 			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
 				<div className='mb-2 flex w-full flex-col'>
 					<label className='mb-2 text-white' htmlFor='discountCode'>
@@ -111,7 +111,7 @@ const TapcartBlock = () => {
 				</div>
 			</div>
 
-			<h2 className='py-2 text-black'>Gift Card Inputs & Actions</h2>
+			<h2 className='py-2 text-white'>Gift Card Inputs & Actions</h2>
 			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
 				<div className='mb-2 flex w-full flex-col'>
 					<label className='mb-2 text-white' htmlFor='giftCardCode'>
@@ -136,7 +136,7 @@ const TapcartBlock = () => {
 				</div>
 			</div>
 
-			<h2 className='py-2 text-black'>Toast Inputs & Actions</h2>
+			<h2 className='py-2 text-white'>Toast Inputs & Actions</h2>
 			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
 				<div className='mb-2 flex w-full flex-col'>
 					<label className='mb-2 text-white' htmlFor='toastMessage'>
@@ -177,7 +177,7 @@ const TapcartBlock = () => {
 				</div>
 			</div>
 
-			<h2 className='py-2 text-black'>Product Inputs & Actions</h2>
+			<h2 className='py-2 text-white'>Product Inputs & Actions</h2>
 			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
 				<div className='mb-2 flex w-full flex-col'>
 					<label className='mb-2 text-white' htmlFor='productId'>
@@ -229,7 +229,7 @@ const TapcartBlock = () => {
 				</div>
 			</div>
 
-			<h2 className='py-2 text-black'>Collection Inputs & Actions</h2>
+			<h2 className='py-2 text-white'>Collection Inputs & Actions</h2>
 			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
 				<div className='mb-2 flex w-full flex-col'>
 					<label className='mb-2 text-white' htmlFor='collectionId'>
@@ -254,7 +254,7 @@ const TapcartBlock = () => {
 				</div>
 			</div>
 
-			<h2 className='py-2 text-black'>Cart Inputs & Actions</h2>
+			<h2 className='py-2 text-white'>Cart Inputs & Actions</h2>
 			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
 				<div className='mb-2 flex w-full flex-col'>
 					<label className='mb-2 text-white' htmlFor='quantity'>
@@ -306,7 +306,7 @@ const TapcartBlock = () => {
 				</div>
 			</div>
 
-			<h2 className='py-2 text-black'>Other Actions</h2>
+			<h2 className='py-2 text-white'>Other Actions</h2>
 			<div className='mb-2 flex flex-wrap justify-around rounded bg-gray-800 p-5'>
 				<button
 					className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
