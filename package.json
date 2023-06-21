@@ -2,7 +2,7 @@
 	"name": "vitamin",
 	"license": "MIT",
 	"private": true,
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"scripts": {
 		"build": "vite build",
 		"commit": "cz",
@@ -27,7 +27,7 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-router-dom": "6.11.2",
-		"tapcart-codeblocks-sdk-test": "^1.2.8"
+		"tapcart-codeblocks-sdk-test": "^1.2.9"
 	},
 	"devDependencies": {
 		"@nabla/vite-plugin-eslint": "1.5.0",
