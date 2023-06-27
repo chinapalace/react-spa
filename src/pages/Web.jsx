@@ -65,6 +65,10 @@ const TapcartBlock = () => {
 		}
 	}, [actions, variables])
 
+	useEffect(() => {
+		console.log(window.Tapcart)
+	})
+
 	return (
 		<div className='mx-auto max-w-xl px-5 font-sans text-sm text-white'>
 			<h2 className='py-2 text-white'>Variables</h2>
@@ -310,7 +314,13 @@ const TapcartBlock = () => {
 			<div className='mb-2 flex flex-wrap justify-around rounded bg-gray-800 p-5'>
 				<button
 					className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
-					onClick={() => actions.getCustomerIdentity()}
+					onClick={() =>
+						actions.getCustomerIdentity(null, {
+							onSuccess: res => {
+								console.log(res)
+							}
+						})
+					}
 				>
 					Get Customer Identity
 				</button>
