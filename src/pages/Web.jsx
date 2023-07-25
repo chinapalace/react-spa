@@ -327,6 +327,7 @@ const TapcartBlock = () => {
 					Get Customer Identity
 				</button>
 				<div>
+					<label>Customer Identity</label>
 					<pre>{customerIdentity}</pre>
 				</div>
 			</div>
