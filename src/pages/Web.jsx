@@ -319,7 +319,7 @@ const TapcartBlock = () => {
 						actions.getCustomerIdentity(null, {
 							onSuccess: res => {
 								console.log(res)
-								setCustomerIdentity(JSON.stringify(customerIdentity, null, 2))
+								return setCustomerIdentity(JSON.stringify(res, null, 2))
 							}
 						})
 					}
