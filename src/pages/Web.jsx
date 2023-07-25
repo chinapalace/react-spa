@@ -5,6 +5,7 @@ const TapcartBlock = () => {
 	const variables = useVariables()
 	const actions = useActions()
 	const [variablesState, setVariablesState] = useState(null)
+	const [customerIdentity, setCustomerIdentity] = useState(null)
 
 	const [discountCode, setDiscountCode] = useState('')
 	const handleDiscountCodeChange = event => {
@@ -318,17 +319,19 @@ const TapcartBlock = () => {
 						actions.getCustomerIdentity(null, {
 							onSuccess: res => {
 								console.log(res)
+								setCustomerIdentity(JSON.stringify(customerIdentity, null, 2))
 							}
 						})
 					}
 				>
 					Get Customer Identity
 				</button>
+				<div>
+					<pre>{customerIdentity}</pre>
+				</div>
 			</div>
 		</div>
 	)
 }
-
-
 
 export default TapcartBlock
