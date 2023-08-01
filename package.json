@@ -2,7 +2,7 @@
 	"name": "vitamin",
 	"license": "MIT",
 	"private": true,
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"scripts": {
 		"build": "vite build",
 		"commit": "cz",
