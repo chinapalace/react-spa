@@ -66,9 +66,12 @@ const TapcartBlock = () => {
 		}
 	}, [actions, variables])
 
-	useEffect(() => {
-		console.log(window.Tapcart)
-	})
+	const [screenType, setScreenType] = useState('web') // 'web' or 'internal'
+	const [url, setUrl] = useState('')
+
+	// New handlers
+	const handleScreenTypeChange = e => setScreenType(e.target.value)
+	const handleUrlChange = e => setUrl(e.target.value)
 
 	return (
 		<div className='mx-auto max-w-xl px-5 font-sans text-sm text-white'>
@@ -307,6 +310,49 @@ const TapcartBlock = () => {
 						onClick={() => actions.openCart()}
 					>
 						Open Cart
+					</button>
+				</div>
+			</div>
+
+			<h2 className='py-2 text-white'>Open Screen Action</h2>
+			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
+				<div className='mb-2 flex w-full flex-col'>
+					<label className='mb-2 text-white' htmlFor='screenType'>
+						Screen Type
+					</label>
+					<select
+						id='screenType'
+						value={screenType}
+						onChange={handleScreenTypeChange}
+						className='rounded bg-white px-3 py-2 text-black'
+					>
+						<option value='web'>Web</option>
+						<option value='internal'>Internal</option>
+					</select>
+				</div>
+
+				<div className='mb-2 flex w-full flex-col'>
+					<label className='mb-2 text-white' htmlFor='url'>
+						URL
+					</label>
+					<input
+						id='url'
+						type='text'
+						value={url}
+						onChange={handleUrlChange}
+						className='rounded bg-white px-3 py-2 text-black'
+						placeholder='Enter URL'
+					/>
+				</div>
+
+				<div className='flex flex-wrap justify-around'>
+					<button
+						className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
+						onClick={() => {
+							actions.openScreen({ destination: { type: screenType, url } })
+						}}
+					>
+						Open Screen
 					</button>
 				</div>
 			</div>
