@@ -1,9 +1,9 @@
+import { loadWebbridge, WebbridgeProvider } from '@tapcart/webbridge-react'
 import LoadingOrError from 'components/LoadingOrError'
 import Webbridge from 'pages/Web'
 import type { ReactElement } from 'react'
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { loadWebbridge, WebbridgeProvider } from 'tapcart-codeblocks-sdk-test'
 
 const Gallery = lazy(async () => import('pages/Gallery'))
 

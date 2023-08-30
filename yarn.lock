@@ -1513,6 +1513,17 @@
     "@tanstack/query-core" "4.29.7"
     use-sync-external-store "^1.2.0"
 
+"@tapcart/webbridge-react@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@tapcart/webbridge-react/-/webbridge-react-1.4.0.tgz#a891600615ee04efc03f5f4975cdcfe6f2ceb54c"
+  integrity sha512-Jv7kmV5jsSkCOm5re7xY8cTkPkwN6OL8xg4dY7/A2Hdm88shLCE3iTekaATj8BfjRbW2sv68V9XkBScog6FGIA==
+  dependencies:
+    handlebars "^4.7.7"
+    nanoid "^3.3.2"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    yup "^0.32.11"
+
 "@testing-library/cypress@9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-9.0.0.tgz#3facad49c4654a99bbd138f83f33b415d2d6f097"
@@ -7073,17 +7084,6 @@ tailwindcss@3.3.2:
     postcss-value-parser "^4.2.0"
     resolve "^1.22.2"
     sucrase "^3.32.0"
-
-tapcart-codeblocks-sdk-test@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/tapcart-codeblocks-sdk-test/-/tapcart-codeblocks-sdk-test-1.3.4.tgz#8d75209e9f29d05b93f0ccaa77b9551f5d3aee6c"
-  integrity sha512-L9ksg7/1MJgqj/kF58D4ahYfQhxTa0/QDOacPn9p2ClD3Nj9S314rS+CT04Rch96bYEHR/tEtbHQD1SWMmfDAw==
-  dependencies:
-    handlebars "^4.7.7"
-    nanoid "^3.3.2"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    yup "^0.32.11"
 
 temp-dir@^2.0.0:
   version "2.0.0"
