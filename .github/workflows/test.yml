@@ -13,23 +13,27 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: pnpm/action-setup@v2.2.4
-        with:
-          version: latest
-
+      # Setup Node.js environment
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'pnpm'
+          cache: 'yarn' # use yarn for caching
 
+      # Install dependencies
       - name: Install dependencies
-        run: pnpm i && pnpm cypress install
+        run: yarn install
 
+      # If you are using Cypress, you can still install it
+      # - name: Install Cypress
+      #   run: yarn add cypress
+
+      # Validate
       - name: Validate
-        run: pnpm run-p lint test:ci test:e2e:ci
+        run: yarn lint && yarn test:ci && yarn test:e2e:ci
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+      # Upload coverage
       - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
