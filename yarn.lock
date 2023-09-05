@@ -1513,10 +1513,10 @@
     "@tanstack/query-core" "4.29.7"
     use-sync-external-store "^1.2.0"
 
-"@tapcart/webbridge-react@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@tapcart/webbridge-react/-/webbridge-react-1.4.0.tgz#a891600615ee04efc03f5f4975cdcfe6f2ceb54c"
-  integrity sha512-Jv7kmV5jsSkCOm5re7xY8cTkPkwN6OL8xg4dY7/A2Hdm88shLCE3iTekaATj8BfjRbW2sv68V9XkBScog6FGIA==
+"@tapcart/webbridge-react@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@tapcart/webbridge-react/-/webbridge-react-1.4.1.tgz#f0f40c20fc8a1586cfefaac296f9eb426a41f6bb"
+  integrity sha512-jaKEEy33KzRcOyu+7gDTIPywe7j2BgFT5pigEew+Uk6md75GoKSP5KItrAjtlYfgcrQ0sgHXjOcMYj+FmlBKWA==
   dependencies:
     handlebars "^4.7.7"
     nanoid "^3.3.2"
