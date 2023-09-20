@@ -1,5 +1,5 @@
-import { useActions, useVariables } from '@tapcart/webbridge-react'
 import { useEffect, useState } from 'react'
+import { useActions, useVariables } from '../../webbridge.es'
 
 const TapcartBlock = () => {
 	const variables = useVariables()
