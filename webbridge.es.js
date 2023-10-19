@@ -1,9 +1,9 @@
-import tt, { useContext as Kt, createContext as Vt, useEffect as nn, useState as rn, useReducer as tn } from "react";
+import tt, {
+	useContext as Kt,
 	createContext as Vt,
-	useReducer as tn,
-	useState as rn,
 	useEffect as nn,
-	useContext as Kt
+	useState as rn,
+	useReducer as tn
 } from 'react'
 const an = t => t && Object.keys(t).length === 0 && t.constructor === Object,
 	sn = t => {
@@ -3142,13 +3142,12 @@ function qh(t) {
 var Vh = qh,
 	Kh = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g
 function Bh(t) {
-export {
-	u0 as WebbridgeProvider,
-	o0 as loadWebbridge,
-	c0 as useActions,
-	l0 as useVariables
-};
-turn Zh.test(t)
+	return t.match(Kh) || []
+}
+var Wh = Bh,
+	Zh = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/
+function Jh(t) {
+	return Zh.test(t)
 }
 var Yh = Jh,
 	Ar = '\\ud800-\\udfff',
