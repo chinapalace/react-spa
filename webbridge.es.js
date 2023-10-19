@@ -1,4 +1,4 @@
-import tt, {
+import tt, { useContext as Kt, createContext as Vt, useEffect as nn, useState as rn, useReducer as tn } from "react";
 	createContext as Vt,
 	useReducer as tn,
 	useState as rn,
@@ -229,11 +229,11 @@ function G(t) {
 		: t
 }
 var yn = Object.prototype,
-	mn = yn.hasOwnProperty
-function gn(t, e) {
-	return t != null && mn.call(t, e)
+	gn = yn.hasOwnProperty
+function mn(t, e) {
+	return t != null && gn.call(t, e)
 }
-var vn = gn,
+var vn = mn,
 	_n = Array.isArray,
 	M = _n,
 	$n = typeof ee == 'object' && ee && ee.Object === Object && ee,
@@ -354,10 +354,10 @@ var Yt = la,
 	da = qe,
 	pa = Yt,
 	ya = /[\\^$.*+?()[\]{}|]/g,
-	ma = /^\[object .+?Constructor\]$/,
-	ga = Function.prototype,
+	ga = /^\[object .+?Constructor\]$/,
+	ma = Function.prototype,
 	va = Object.prototype,
-	_a = ga.toString,
+	_a = ma.toString,
 	$a = va.hasOwnProperty,
 	ba = RegExp(
 		'^' +
@@ -372,7 +372,7 @@ var Yt = la,
 	)
 function xa(t) {
 	if (!da(t) || ha(t)) return !1
-	var e = fa(t) ? ba : ma
+	var e = fa(t) ? ba : ga
 	return e.test(pa(t))
 }
 var Fa = xa
@@ -464,8 +464,8 @@ function is(t, e) {
 	for (var r = t.length; r--; ) if (ss(t[r][0], e)) return r
 	return -1
 }
-var me = is,
-	os = me,
+var ge = is,
+	os = ge,
 	us = Array.prototype,
 	cs = us.splice
 function ls(t) {
@@ -476,19 +476,19 @@ function ls(t) {
 	return r == n ? e.pop() : cs.call(e, r, 1), --this.size, !0
 }
 var fs = ls,
-	hs = me
+	hs = ge
 function ds(t) {
 	var e = this.__data__,
 		r = hs(e, t)
 	return r < 0 ? void 0 : e[r][1]
 }
 var ps = ds,
-	ys = me
-function ms(t) {
+	ys = ge
+function gs(t) {
 	return ys(this.__data__, t) > -1
 }
-var gs = ms,
-	vs = me
+var ms = gs,
+	vs = ge
 function _s(t, e) {
 	var r = this.__data__,
 		n = vs(r, t)
@@ -498,7 +498,7 @@ var $s = _s,
 	bs = ns,
 	xs = fs,
 	Fs = ps,
-	ws = gs,
+	ws = ms,
 	Es = $s
 function V(t) {
 	var e = -1,
@@ -513,13 +513,13 @@ V.prototype.delete = xs
 V.prototype.get = Fs
 V.prototype.has = ws
 V.prototype.set = Es
-var ge = V,
+var me = V,
 	Ts = U,
 	Os = P,
 	As = Ts(Os, 'Map'),
 	Ve = As,
 	ut = ts,
-	Ss = ge,
+	Ss = me,
 	Cs = Ve
 function Ds() {
 	;(this.size = 0),
@@ -637,7 +637,7 @@ var hi = fi,
 	di = hi,
 	pi = M,
 	yi = He,
-	mi = 1 / 0,
+	gi = 1 / 0,
 	lt = ct ? ct.prototype : void 0,
 	ft = lt ? lt.toString : void 0
 function er(t) {
@@ -645,10 +645,10 @@ function er(t) {
 	if (pi(t)) return di(t, er) + ''
 	if (yi(t)) return ft ? ft.call(t) : ''
 	var e = t + ''
-	return e == '0' && 1 / t == -mi ? '-0' : e
+	return e == '0' && 1 / t == -gi ? '-0' : e
 }
-var gi = er,
-	vi = gi
+var mi = er,
+	vi = mi
 function _i(t) {
 	return t == null ? '' : vi(t)
 }
@@ -796,7 +796,7 @@ function Re() {
 	)
 }
 let eo = /\$\{\s*(\w+)\s*\}/g
-class F extends Error {
+class w extends Error {
 	static formatError(e, r) {
 		const n = r.label || r.path || 'this'
 		return (
@@ -829,7 +829,7 @@ class F extends Error {
 			(this.errors = []),
 			(this.inner = []),
 			ir(e).forEach(s => {
-				F.isError(s)
+				w.isError(s)
 					? (this.errors.push(...s.errors),
 					  (this.inner = this.inner.concat(s.inner.length ? s.inner : s)))
 					: this.errors.push(s)
@@ -838,7 +838,7 @@ class F extends Error {
 				this.errors.length > 1
 					? `${this.errors.length} errors occurred`
 					: this.errors[0]),
-			Error.captureStackTrace && Error.captureStackTrace(this, F)
+			Error.captureStackTrace && Error.captureStackTrace(this, w)
 	}
 }
 const to = t => {
@@ -860,12 +860,12 @@ function ie(t, e) {
 		c = to(e),
 		f = n.length
 	const l = []
-	if (((i = i || []), !f)) return i.length ? c(new F(i, s, u)) : c(null, s)
+	if (((i = i || []), !f)) return i.length ? c(new w(i, s, u)) : c(null, s)
 	for (let h = 0; h < n.length; h++) {
 		const d = n[h]
 		d(a, function (y) {
 			if (y) {
-				if (!F.isError(y)) return c(y, s)
+				if (!w.isError(y)) return c(y, s)
 				if (r) return (y.value = s), c(y, s)
 				l.push(y)
 			}
@@ -874,7 +874,7 @@ function ie(t, e) {
 					(l.length && (o && l.sort(o), i.length && l.push(...i), (i = l)),
 					i.length)
 				) {
-					c(new F(i, s, u), s)
+					c(new w(i, s, u), s)
 					return
 				}
 				c(null, s)
@@ -938,8 +938,8 @@ oe.exports
 	t.exports = c
 })(oe, oe.exports)
 var ur = oe.exports,
-	mo = Y,
-	go = We,
+	go = Y,
+	mo = We,
 	vo = X,
 	_o = '[object Arguments]',
 	$o = '[object Array]',
@@ -965,26 +965,26 @@ var ur = oe.exports,
 	zo = '[object Uint8ClampedArray]',
 	ko = '[object Uint16Array]',
 	Ho = '[object Uint32Array]',
-	g = {}
-g[Io] = g[Mo] = g[No] = g[jo] = g[Uo] = g[Lo] = g[zo] = g[ko] = g[Ho] = !0
-g[_o] =
-	g[$o] =
-	g[Po] =
-	g[bo] =
-	g[Ro] =
-	g[xo] =
-	g[Fo] =
-	g[wo] =
-	g[Eo] =
-	g[To] =
-	g[Oo] =
-	g[Ao] =
-	g[So] =
-	g[Co] =
-	g[Do] =
+	m = {}
+m[Io] = m[Mo] = m[No] = m[jo] = m[Uo] = m[Lo] = m[zo] = m[ko] = m[Ho] = !0
+m[_o] =
+	m[$o] =
+	m[Po] =
+	m[bo] =
+	m[Ro] =
+	m[xo] =
+	m[Fo] =
+	m[wo] =
+	m[Eo] =
+	m[To] =
+	m[Oo] =
+	m[Ao] =
+	m[So] =
+	m[Co] =
+	m[Do] =
 		!1
 function Go(t) {
-	return vo(t) && go(t.length) && !!g[mo(t)]
+	return vo(t) && mo(t.length) && !!m[go(t)]
 }
 var qo = Go
 function Vo(t) {
@@ -1062,11 +1062,11 @@ var fu = lu,
 	du = hu(Object.keys, Object),
 	pu = du,
 	yu = cu,
-	mu = pu,
-	gu = Object.prototype,
-	vu = gu.hasOwnProperty
+	gu = pu,
+	mu = Object.prototype,
+	vu = mu.hasOwnProperty
 function _u(t) {
-	if (!yu(t)) return mu(t)
+	if (!yu(t)) return gu(t)
 	var e = []
 	for (var r in Object(t)) vu.call(t, r) && r != 'constructor' && e.push(r)
 	return e
@@ -1091,7 +1091,7 @@ function Du(t, e) {
 	return t && Su(t, e, Cu)
 }
 var lr = Du,
-	Pu = ge
+	Pu = me
 function Ru() {
 	;(this.__data__ = new Pu()), (this.size = 0)
 }
@@ -1110,7 +1110,7 @@ function Lu(t) {
 	return this.__data__.has(t)
 }
 var zu = Lu,
-	ku = ge,
+	ku = me,
 	Hu = Ve,
 	Gu = Ke,
 	qu = 200
@@ -1125,7 +1125,7 @@ function Vu(t, e) {
 	return r.set(t, e), (this.size = r.size), this
 }
 var Ku = Vu,
-	Bu = ge,
+	Bu = me,
 	Wu = Iu,
 	Zu = Nu,
 	Ju = Uu,
@@ -1175,8 +1175,8 @@ var fc = lc,
 	dc = cc,
 	pc = fc,
 	yc = 1,
-	mc = 2
-function gc(t, e, r, n, a, s) {
+	gc = 2
+function mc(t, e, r, n, a, s) {
 	var i = r & yc,
 		o = t.length,
 		u = e.length
@@ -1186,20 +1186,20 @@ function gc(t, e, r, n, a, s) {
 	if (c && f) return c == e && f == t
 	var l = -1,
 		h = !0,
-		d = r & mc ? new hc() : void 0
+		d = r & gc ? new hc() : void 0
 	for (s.set(t, e), s.set(e, t); ++l < o; ) {
 		var p = t[l],
 			y = e[l]
-		if (n) var m = i ? n(y, p, l, e, t, s) : n(p, y, l, t, e, s)
-		if (m !== void 0) {
-			if (m) continue
+		if (n) var g = i ? n(y, p, l, e, t, s) : n(p, y, l, t, e, s)
+		if (g !== void 0) {
+			if (g) continue
 			h = !1
 			break
 		}
 		if (d) {
 			if (
-				!dc(e, function (_, w) {
-					if (!pc(d, w) && (p === _ || a(p, _, r, n, s))) return d.push(w)
+				!dc(e, function (_, E) {
+					if (!pc(d, E) && (p === _ || a(p, _, r, n, s))) return d.push(E)
 				})
 			) {
 				h = !1
@@ -1212,7 +1212,7 @@ function gc(t, e, r, n, a, s) {
 	}
 	return s.delete(t), s.delete(e), h
 }
-var hr = gc,
+var hr = mc,
 	vc = P,
 	_c = vc.Uint8Array,
 	$c = _c
@@ -1238,8 +1238,8 @@ function Fc(t) {
 	)
 }
 var wc = Fc,
-	mt = pe,
-	gt = $c,
+	gt = pe,
+	mt = $c,
 	Ec = Xt,
 	Tc = hr,
 	Oc = xc,
@@ -1257,7 +1257,7 @@ var wc = Fc,
 	Lc = '[object Symbol]',
 	zc = '[object ArrayBuffer]',
 	kc = '[object DataView]',
-	vt = mt ? mt.prototype : void 0,
+	vt = gt ? gt.prototype : void 0,
 	Fe = vt ? vt.valueOf : void 0
 function Hc(t, e, r, n, a, s, i) {
 	switch (r) {
@@ -1266,7 +1266,7 @@ function Hc(t, e, r, n, a, s, i) {
 				return !1
 			;(t = t.buffer), (e = e.buffer)
 		case zc:
-			return !(t.byteLength != e.byteLength || !s(new gt(t), new gt(e)))
+			return !(t.byteLength != e.byteLength || !s(new mt(t), new mt(e)))
 		case Dc:
 		case Pc:
 		case Mc:
@@ -1359,18 +1359,18 @@ function pl(t, e, r, n, a, s) {
 	if (d && p) return d == e && p == t
 	var y = !0
 	s.set(t, e), s.set(e, t)
-	for (var m = i; ++l < u; ) {
+	for (var g = i; ++l < u; ) {
 		h = o[l]
 		var _ = t[h],
-			w = e[h]
-		if (n) var C = i ? n(w, _, h, e, t, s) : n(_, w, h, t, e, s)
-		if (!(C === void 0 ? _ === w || a(_, w, r, n, s) : C)) {
+			E = e[h]
+		if (n) var C = i ? n(E, _, h, e, t, s) : n(_, E, h, t, e, s)
+		if (!(C === void 0 ? _ === E || a(_, E, r, n, s) : C)) {
 			y = !1
 			break
 		}
-		m || (m = h == 'constructor')
+		g || (g = h == 'constructor')
 	}
-	if (y && !m) {
+	if (y && !g) {
 		var T = t.constructor,
 			D = e.constructor
 		T != D &&
@@ -1387,9 +1387,9 @@ function pl(t, e, r, n, a, s) {
 	return s.delete(t), s.delete(e), y
 }
 var yl = pl,
-	ml = U,
-	gl = P,
-	vl = ml(gl, 'DataView'),
+	gl = U,
+	ml = P,
+	vl = gl(ml, 'DataView'),
 	_l = vl,
 	$l = U,
 	bl = P,
@@ -1484,8 +1484,8 @@ function Vl(t, e, r, n, a, s) {
 			p = l && Dt.call(e, '__wrapped__')
 		if (d || p) {
 			var y = d ? t.value() : t,
-				m = p ? e.value() : e
-			return s || (s = new we()), a(y, m, r, n, s)
+				g = p ? e.value() : e
+			return s || (s = new we()), a(y, g, r, n, s)
 		}
 	}
 	return h ? (s || (s = new we()), kl(t, e, r, n, a, s)) : !1
@@ -1534,8 +1534,8 @@ var Ql = Xl,
 function tf(t) {
 	return t === t && !ef(t)
 }
-var mr = tf,
-	rf = mr,
+var gr = tf,
+	rf = gr,
 	nf = Je
 function af(t) {
 	for (var e = nf(t), r = e.length; r--; ) {
@@ -1551,10 +1551,10 @@ function of(t, e) {
 		return r == null ? !1 : r[t] === e && (e !== void 0 || t in Object(r))
 	}
 }
-var gr = of,
+var mr = of,
 	uf = Ql,
 	cf = sf,
-	lf = gr
+	lf = mr
 function ff(t) {
 	var e = cf(t)
 	return e.length == 1 && e[0][2]
@@ -1572,12 +1572,12 @@ function yf(t, e) {
 	return r && r == n ? t : void 0
 }
 var vr = yf,
-	mf = vr
-function gf(t, e, r) {
-	var n = t == null ? void 0 : mf(t, e)
+	gf = vr
+function mf(t, e, r) {
+	var n = t == null ? void 0 : gf(t, e)
 	return n === void 0 ? r : n
 }
-var vf = gf
+var vf = mf
 function _f(t, e) {
 	return t != null && e in Object(t)
 }
@@ -1592,8 +1592,8 @@ var wf = Ff,
 	Tf = vf,
 	Of = wf,
 	Af = Ge,
-	Sf = mr,
-	Cf = gr,
+	Sf = gr,
+	Cf = mr,
 	Df = _e,
 	Pf = 1,
 	Rf = 2
@@ -1871,11 +1871,11 @@ function ne(t) {
 			} = r,
 			f = ph(r, ['value', 'path', 'label', 'options', 'originalValue', 'sync'])
 		const { name: l, test: h, params: d, message: p } = t
-		let { parent: y, context: m } = o
+		let { parent: y, context: g } = o
 		function _($) {
-			return I.isRef($) ? $.getValue(a, y, m) : $
+			return I.isRef($) ? $.getValue(a, y, g) : $
 		}
-		function w($ = {}) {
+		function E($ = {}) {
 			const be = $r(
 					le(
 						{
@@ -1889,7 +1889,7 @@ function ne(t) {
 					),
 					_
 				),
-				et = new F(F.formatError($.message || p, be), a, be.path, $.type || l)
+				et = new w(w.formatError($.message || p, be), a, be.path, $.type || l)
 			return (et.params = be), et
 		}
 		let C = le(
@@ -1897,7 +1897,7 @@ function ne(t) {
 				path: s,
 				parent: y,
 				type: l,
-				createError: w,
+				createError: E,
 				resolve: _,
 				options: o,
 				originalValue: u
@@ -1908,7 +1908,7 @@ function ne(t) {
 			try {
 				Promise.resolve(h.call(C, a, C))
 					.then($ => {
-						F.isError($) ? n($) : $ ? n(null, $) : n(w())
+						w.isError($) ? n($) : $ ? n(null, $) : n(E())
 					})
 					.catch(n)
 			} catch ($) {
@@ -1930,12 +1930,12 @@ function ne(t) {
 			n($)
 			return
 		}
-		F.isError(T) ? n(T) : T ? n(null, T) : n(w())
+		w.isError(T) ? n(T) : T ? n(null, T) : n(E())
 	}
 	return (e.OPTIONS = t), e
 }
 let yh = t => t.substr(0, t.length - 1).substr(1)
-function mh(t, e, r, n = r) {
+function gh(t, e, r, n = r) {
 	let a, s, i
 	return e
 		? ($e.forEach(e, (o, u, c) => {
@@ -2291,7 +2291,7 @@ attempted value: ${s}
 		return this.validate(e, r).then(
 			() => !0,
 			n => {
-				if (F.isError(n)) return !1
+				if (w.isError(n)) return !1
 				throw n
 			}
 		)
@@ -2300,7 +2300,7 @@ attempted value: ${s}
 		try {
 			return this.validateSync(e, r), !0
 		} catch (n) {
-			if (F.isError(n)) return !1
+			if (w.isError(n)) return !1
 			throw n
 		}
 	}
@@ -2527,7 +2527,7 @@ attempted value: ${s}
 x.prototype.__isYupSchema__ = !0
 for (const t of ['validate', 'validateSync'])
 	x.prototype[`${t}At`] = function (e, r, n = {}) {
-		const { parent: a, parentPath: s, schema: i } = mh(this, e, r, n.context)
+		const { parent: a, parentPath: s, schema: i } = gh(this, e, r, n.context)
 		return i[t](
 			a && a[s],
 			O({}, n, {
@@ -2539,8 +2539,8 @@ for (const t of ['validate', 'validateSync'])
 for (const t of ['equals', 'is']) x.prototype[t] = x.prototype.oneOf
 for (const t of ['not', 'nope']) x.prototype[t] = x.prototype.notOneOf
 x.prototype.optional = x.prototype.notRequired
-const gh = x
-gh.prototype
+const mh = x
+mh.prototype
 const v = t => t == null
 function xr() {
 	return new Fr()
@@ -3142,12 +3142,13 @@ function qh(t) {
 var Vh = qh,
 	Kh = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g
 function Bh(t) {
-	return t.match(Kh) || []
-}
-var Wh = Bh,
-	Zh = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/
-function Jh(t) {
-	return Zh.test(t)
+export {
+	u0 as WebbridgeProvider,
+	o0 as loadWebbridge,
+	c0 as useActions,
+	l0 as useVariables
+};
+turn Zh.test(t)
 }
 var Yh = Jh,
 	Ar = '\\ud800-\\udfff',
@@ -3187,16 +3188,16 @@ var Yh = Jh,
 	zr = '[' + id + ']?',
 	pd = '(?:' + hd + '(?:' + [fd, jr, Ur].join('|') + ')' + zr + Lr + ')*',
 	yd = '\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])',
-	md = '\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])',
-	gd = zr + Lr + pd,
-	vd = '(?:' + [ud, jr, Ur].join('|') + ')' + gd,
+	gd = '\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])',
+	md = zr + Lr + pd,
+	vd = '(?:' + [ud, jr, Ur].join('|') + ')' + md,
 	_d = RegExp(
 		[
 			z + '?' + Mr + '+' + Ut + '(?=' + [Nt, z, '$'].join('|') + ')',
 			dd + '+' + Lt + '(?=' + [Nt, z + jt, '$'].join('|') + ')',
 			z + '?' + jt + '+' + Ut,
 			z + '+' + Lt,
-			md,
+			gd,
 			yd,
 			Ir,
 			vd
@@ -3297,13 +3298,13 @@ var hp = fp,
 	dp = Xd,
 	pp = Hr,
 	yp = hp
-function mp(t) {
+function gp(t) {
 	return pp(t) ? yp(t) : dp(t)
 }
-var gp = mp,
+var mp = gp,
 	vp = kd,
 	_p = Hr,
-	$p = gp,
+	$p = mp,
 	bp = Q
 function xp(t) {
 	return function (e) {
@@ -3529,9 +3530,9 @@ class Yr extends x {
 						context: r.context,
 						parent: u
 					}))
-				let m = 'spec' in h ? h.spec : void 0,
-					_ = m == null ? void 0 : m.strict
-				if (m != null && m.strip) {
+				let g = 'spec' in h ? h.spec : void 0,
+					_ = g == null ? void 0 : g.strict
+				if (g != null && g.strip) {
 					f = f || l in a
 					continue
 				}
@@ -3567,7 +3568,7 @@ class Yr extends x {
 			(r.from = i),
 			super._validate(e, r, (f, l) => {
 				if (f) {
-					if (!F.isError(f) || u) return void n(f, l)
+					if (!w.isError(f) || u) return void n(f, l)
 					a.push(f)
 				}
 				if (!c || !Ht(l)) {
@@ -3576,7 +3577,7 @@ class Yr extends x {
 				}
 				o = o || l
 				let h = this._nodes.map(d => (p, y) => {
-					let m =
+					let g =
 							d.indexOf('.') === -1
 								? (r.path ? `${r.path}.` : '') + d
 								: `${r.path || ''}["${d}"]`,
@@ -3586,7 +3587,7 @@ class Yr extends x {
 							l[d],
 							k({}, r, {
 								// @ts-ignore
-								path: m,
+								path: g,
 								from: i,
 								// inner fields are always strict:
 								// 1. this isn't strict so the casting will also have cast inner values
@@ -3725,10 +3726,10 @@ class Yr extends x {
 		return (e.fields = $r(this.fields, r => r.describe())), e
 	}
 }
-function E(t) {
+function F(t) {
 	return new Yr(t)
 }
-E.prototype = Yr.prototype
+F.prototype = Yr.prototype
 function he() {
 	return (
 		(he =
@@ -3798,7 +3799,7 @@ class Xr extends x {
 			h = r.originalValue != null ? r.originalValue : e
 		super._validate(e, r, (d, p) => {
 			if (d) {
-				if (!F.isError(d) || f) return void n(d, p)
+				if (!w.isError(d) || f) return void n(d, p)
 				i.push(d)
 			}
 			if (!l || !c || !this._typeCheck(p)) {
@@ -3807,17 +3808,17 @@ class Xr extends x {
 			}
 			h = h || p
 			let y = new Array(p.length)
-			for (let m = 0; m < p.length; m++) {
-				let _ = p[m],
-					w = `${r.path || ''}[${m}]`,
+			for (let g = 0; g < p.length; g++) {
+				let _ = p[g],
+					E = `${r.path || ''}[${g}]`,
 					C = he({}, r, {
-						path: w,
+						path: E,
 						strict: !0,
 						parent: p,
-						index: m,
-						originalValue: h[m]
+						index: g,
+						originalValue: h[g]
 					})
-				y[m] = (T, D) => c.validate(_, C, D)
+				y[g] = (T, D) => c.validate(_, C, D)
 			}
 			ie(
 				{
@@ -3934,26 +3935,28 @@ const Jp = t => {
 		}
 	},
 	Gt = de().of(
-		E().shape({
+		F().shape({
 			variantId: b().required(),
-			productId: b(),
+			productId: b().nullable(),
 			quantity: J().required(),
-			sellingPlanId: b(),
-			attributes: de().of(
-				E().shape({
-					key: b().required(),
-					value: b().required()
-				})
-			)
+			sellingPlanId: b().nullable(),
+			attributes: de()
+				.of(
+					F().shape({
+						key: b().required(),
+						value: b().required()
+					})
+				)
+				.nullable()
 		})
 	),
 	Yp = [
 		{
 			functionName: 'addToCart',
 			actionName: 'cart/add',
-			schema: E().shape({
+			schema: F().shape({
 				cartAttributes: de().of(
-					E().shape({
+					F().shape({
 						key: b().required(),
 						value: b().required()
 					})
@@ -3964,7 +3967,7 @@ const Jp = t => {
 		{
 			functionName: 'applyDiscount',
 			actionName: 'discount/apply',
-			schema: E().shape({
+			schema: F().shape({
 				discountCode: b().required()
 			})
 		},
@@ -3976,7 +3979,7 @@ const Jp = t => {
 		{
 			functionName: 'applyGiftCard',
 			actionName: 'giftcard/apply',
-			schema: E().shape({
+			schema: F().shape({
 				giftCardCode: b().required()
 			})
 		},
@@ -3988,14 +3991,14 @@ const Jp = t => {
 		{
 			functionName: 'openCollection',
 			actionName: 'collection/open',
-			schema: E().shape({
+			schema: F().shape({
 				collectionId: b().required()
 			})
 		},
 		{
 			functionName: 'openProduct',
 			actionName: 'product/open',
-			schema: E().shape({
+			schema: F().shape({
 				productId: b().required(),
 				variantId: b(),
 				isRelatedProduct: xr()
@@ -4004,7 +4007,7 @@ const Jp = t => {
 		{
 			functionName: 'showToast',
 			actionName: 'app/toast',
-			schema: E().shape({
+			schema: F().shape({
 				message: b().required(),
 				type: b().required().oneOf(['success', 'error'])
 			})
@@ -4012,7 +4015,7 @@ const Jp = t => {
 		{
 			functionName: 'updateView',
 			actionName: 'view/updated',
-			schema: E().shape({
+			schema: F().shape({
 				height: J().required(),
 				width: J().required(),
 				multiplier: J().required()
@@ -4031,8 +4034,8 @@ const Jp = t => {
 		{
 			functionName: 'openScreen',
 			actionName: 'screen/open',
-			schema: E().shape({
-				destination: E()
+			schema: F().shape({
+				destination: F()
 					.shape({
 						type: b()
 							.oneOf(
@@ -4063,7 +4066,9 @@ const Jp = t => {
 		{
 			functionName: 'removeFromCart',
 			actionName: 'cart/remove',
-			schema: Gt
+			schema: F().shape({
+				lineItems: Gt
+			})
 		}
 	],
 	S = {
@@ -4211,8 +4216,7 @@ const Jp = t => {
 				openCollection: e.actions.openCollection,
 				removeDiscounts: e.actions.removeDiscounts,
 				getCustomerIdentity: e.actions.getCustomerIdentity,
-				openScreen: e.actions.openScreen,
-				removeFromCart: e.actions.removeFromCart
+				openScreen: e.actions.openScreen
 			}
 		return {
 			mobile: {
@@ -4228,7 +4232,7 @@ const Jp = t => {
 		}
 	},
 	n0 = () => {
-		var r, n
+		var r, n, a, s
 		const t = new CustomEvent('webbridge-ready')
 		window.dispatchEvent(t)
 		const e = JSON.stringify({
@@ -4236,7 +4240,10 @@ const Jp = t => {
 			name: 'webbridge/ready'
 		})
 		;(r = window.CustomBlockJavascriptInterface) == null || r.postMessage(e),
-			(n = window.webkit) == null || n.messageHandlers.Tapcart.postMessage(e)
+			(s =
+				(a = (n = window.webkit) == null ? void 0 : n.messageHandlers) == null
+					? void 0
+					: a.Tapcart) == null || s.postMessage(e)
 	},
 	a0 = () => ({
 		device: null,
