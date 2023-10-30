@@ -73,6 +73,8 @@ const TapcartBlock = () => {
 	const handleScreenTypeChange = e => setScreenType(e.target.value)
 	const handleUrlChange = e => setUrl(e.target.value)
 
+	console.log('variables', variables.loaded)
+
 	return (
 		<div className='mx-auto max-w-xl px-5 font-sans text-sm text-white'>
 			<h2 className='py-2 text-white'>Variables</h2>
@@ -310,6 +312,16 @@ const TapcartBlock = () => {
 						onClick={() => actions.openCart()}
 					>
 						Open Cart
+					</button>
+					<button
+						className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
+						onClick={() =>
+							actions.removeFromCart({
+								lineItems: [{ variantId: cartVariantId, quantity }]
+							})
+						}
+					>
+						Remove From Cart
 					</button>
 				</div>
 			</div>
