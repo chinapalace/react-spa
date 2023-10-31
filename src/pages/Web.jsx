@@ -58,6 +58,11 @@ const TapcartBlock = () => {
 		setCartVariantId(event.target.value)
 	}
 
+	const [sellingPlanId, setSellingPlanId] = useState(null)
+	const handleSellingPlanIdChange = event => {
+		setSellingPlanId(event.target.value)
+	}
+
 	useEffect(() => {
 		if (variables) {
 			setVariablesState(JSON.stringify(variables, null, 2))
@@ -294,13 +299,29 @@ const TapcartBlock = () => {
 					/>
 				</div>
 
+				<div className='mb-2 flex w-full flex-col'>
+					<label className='mb-2 text-white' htmlFor='variantId'>
+						Selling Plan ID
+					</label>
+					<input
+						id='sellingPlanId'
+						type='text'
+						value={sellingPlanId}
+						onChange={handleSellingPlanIdChange}
+						className='rounded bg-white px-3 py-2 text-black'
+						placeholder='Enter selling plan ID'
+					/>
+				</div>
+
 				<div className='flex flex-wrap justify-around'>
 					<button
 						className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
 						onClick={() => {
 							const val = {
 								cartAttributes: [{ key: 'test', value: 'test' }],
-								lineItems: [{ variantId: cartVariantId, quantity }]
+								lineItems: [
+									{ variantId: cartVariantId, quantity, sellingPlanId }
+								]
 							}
 							return actions.addToCart(val)
 						}}
@@ -317,7 +338,9 @@ const TapcartBlock = () => {
 						className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
 						onClick={() =>
 							actions.removeFromCart({
-								lineItems: [{ variantId: cartVariantId, quantity }]
+								lineItems: [
+									{ variantId: cartVariantId, quantity, sellingPlanId }
+								]
 							})
 						}
 					>
