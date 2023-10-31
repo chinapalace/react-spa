@@ -80,6 +80,8 @@ const TapcartBlock = () => {
 
 	console.log('variables', variables.loaded)
 
+	const [withCartAttributes, setWithCartAttributes] = useState(false)
+
 	return (
 		<div className='mx-auto max-w-xl px-5 font-sans text-sm text-white'>
 			<h2 className='py-2 text-white'>Variables</h2>
@@ -313,15 +315,30 @@ const TapcartBlock = () => {
 					/>
 				</div>
 
+				<div className='mb-2 flex w-full items-center'>
+					<input
+						id='withCartAttributes'
+						type='checkbox'
+						checked={withCartAttributes}
+						onChange={() => setWithCartAttributes(!withCartAttributes)}
+						className='mr-2'
+					/>
+					<label className='text-white' htmlFor='withCartAttributes'>
+						With Cart Attributes
+					</label>
+				</div>
+
 				<div className='flex flex-wrap justify-around'>
 					<button
 						className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
 						onClick={() => {
 							const val = {
-								cartAttributes: [{ key: 'test', value: 'test' }],
 								lineItems: [
 									{ variantId: cartVariantId, quantity, sellingPlanId }
 								]
+							}
+							if (withCartAttributes) {
+								val.cartAttributes = [{ key: 'test', value: 'test' }]
 							}
 							return actions.addToCart(val)
 						}}
@@ -336,13 +353,18 @@ const TapcartBlock = () => {
 					</button>
 					<button
 						className='m-2 w-full transform cursor-pointer rounded bg-gradient-to-r from-blue-400 to-blue-600 px-5 py-2 text-center text-white shadow-md transition-transform duration-200 hover:scale-105'
-						onClick={() =>
-							actions.removeFromCart({
+						onClick={() => {
+							const val = {
 								lineItems: [
 									{ variantId: cartVariantId, quantity, sellingPlanId }
 								]
-							})
-						}
+							}
+
+							if (withCartAttributes) {
+								val.cartAttributes = [{ key: 'test', value: 'test' }]
+							}
+							return actions.removeFromCart(val)
+						}}
 					>
 						Remove From Cart
 					</button>
