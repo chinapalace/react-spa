@@ -338,7 +338,7 @@ const TapcartBlock = () => {
 								]
 							}
 							if (withCartAttributes) {
-								val.cartAttributes = [{ key: 'test', value: 'test' }]
+								val.lineItems[0].attributes = [{ key: 'test', value: 'test' }]
 							}
 							return actions.addToCart(val)
 						}}
@@ -361,7 +361,7 @@ const TapcartBlock = () => {
 							}
 
 							if (withCartAttributes) {
-								val.cartAttributes = [{ key: 'test', value: 'test' }]
+								val.lineItems[0].attributes = [{ key: 'test', value: 'test' }]
 							}
 							return actions.removeFromCart(val)
 						}}
