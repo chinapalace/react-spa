@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useActions, useVariables } from '../../webbridge.es'
 
 const TapcartBlock = () => {
-	const variables = useVariables()
+	const variables = useVariables() || {}
 	const actions = useActions()
 	const [variablesState, setVariablesState] = useState(null)
 	const [customerIdentity, setCustomerIdentity] = useState(null)
@@ -85,7 +85,9 @@ const TapcartBlock = () => {
 	return (
 		<div className='mx-auto max-w-xl px-5 font-sans text-sm text-white'>
 			<h2 className='py-2 text-white'>Variables</h2>
-			<div className='mb-2 rounded bg-gray-800 p-5'></div>
+			<div className='mb-2 rounded bg-gray-800 p-5'>
+				<pre>{variables}</pre>
+			</div>
 
 			<h2 className='py-2 text-white'>Discount Inputs & Actions</h2>
 			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
