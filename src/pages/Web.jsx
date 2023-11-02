@@ -85,9 +85,7 @@ const TapcartBlock = () => {
 	return (
 		<div className='mx-auto max-w-xl px-5 font-sans text-sm text-white'>
 			<h2 className='py-2 text-white'>Variables</h2>
-			<div className='mb-2 rounded bg-gray-800 p-5'>
-				{variables && <pre>{variables}</pre>}
-			</div>
+			<div className='mb-2 rounded bg-gray-800 p-5'></div>
 
 			<h2 className='py-2 text-white'>Discount Inputs & Actions</h2>
 			<div className='mb-2 flex flex-col rounded bg-gray-800 p-5'>
