@@ -65,7 +65,7 @@ const TapcartBlock = () => {
 
 	useEffect(() => {
 		if (variables) {
-			setVariablesState(JSON.stringify(variables, null, 2))
+			setVariablesState(variables)
 		} else {
 			console.error('Tapcart SDK not loaded.')
 		}
@@ -74,7 +74,10 @@ const TapcartBlock = () => {
 	useEffect(() => {
 		if (window.Tapcart) {
 			window.Tapcart.registerEventHandler('cart/updated', cart => {
-				console.log('cartUpdated', cart)
+				setVariablesState(prevState => ({
+					...prevState,
+					cart
+				}))
 			})
 		}
 	}, [])
@@ -97,13 +100,12 @@ const TapcartBlock = () => {
 	console.log('variables', variables)
 
 	const [withCartAttributes, setWithCartAttributes] = useState(false)
-	const variablesString = JSON.stringify(variables, null, 2)
 
 	return (
 		<div className='mx-auto max-w-xl px-5 font-sans text-sm text-white'>
 			<h2 className='py-2 text-white'>Variables</h2>
 			<div className='mb-2 rounded bg-gray-800 p-5'>
-				<pre>{variablesString}</pre>
+				<pre>{JSON.stringify(variablesState, null, 2)}</pre>
 			</div>
 
 			<h2 className='py-2 text-white'>Discount Inputs & Actions</h2>
