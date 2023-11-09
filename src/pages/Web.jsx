@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useActions, useVariables } from '../../webbridge.es'
 
 const TapcartBlock = () => {
@@ -63,13 +63,29 @@ const TapcartBlock = () => {
 		setSellingPlanId(event.target.value)
 	}
 
-	// useEffect(() => {
-	// 	if (variables) {
-	// 		setVariablesState(JSON.stringify(variables, null, 2))
-	// 	} else {
-	// 		console.error('Tapcart SDK not loaded.')
-	// 	}
-	// }, [actions, variables])
+	useEffect(() => {
+		if (variables) {
+			setVariablesState(JSON.stringify(variables, null, 2))
+		} else {
+			console.error('Tapcart SDK not loaded.')
+		}
+	}, [variables])
+
+	useEffect(() => {
+		if (window.Tapcart) {
+			window.Tapcart.registerEventHandler('cart/updated', cart => {
+				console.log('cartUpdated', cart)
+			})
+		}
+	}, [])
+
+	useEffect(() => {
+		if (window.Tapcart) {
+			window.Tapcart.registerEventHandler('product/updated', product => {
+				console.log('productUpdated', product)
+			})
+		}
+	})
 
 	const [screenType, setScreenType] = useState('web') // 'web' or 'internal'
 	const [url, setUrl] = useState('')
