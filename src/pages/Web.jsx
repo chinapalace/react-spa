@@ -74,6 +74,7 @@ const TapcartBlock = () => {
 	useEffect(() => {
 		if (window.Tapcart) {
 			window.Tapcart.registerEventHandler('cart/updated', cart => {
+				actions.showToast({ message: 'cart/updated', type: 'success' })
 				setVariablesState(prevState => ({
 					...prevState,
 					cart
