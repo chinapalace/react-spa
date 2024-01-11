@@ -1,5 +1,5 @@
+import { useActions, useVariables } from '@tapcart/webbridge-react'
 import { useEffect, useState } from 'react'
-import { useActions, useVariables } from '../../webbridge.es'
 
 const TapcartBlock = () => {
 	const variables = useVariables()
@@ -72,7 +72,7 @@ const TapcartBlock = () => {
 	}, [variables])
 
 	useEffect(() => {
-		if (window.Tapcart) {
+		if (window.Tapcart && window.Tapcart.registerEventHandler) {
 			window.Tapcart.registerEventHandler('cart/updated', cart => {
 				actions.showToast({ message: 'cart/updated', type: 'success' })
 				setVariablesState(prevState => ({
@@ -84,7 +84,7 @@ const TapcartBlock = () => {
 	}, [])
 
 	useEffect(() => {
-		if (window.Tapcart) {
+		if (window.Tapcart && window.Tapcart.registerEventHandler) {
 			window.Tapcart.registerEventHandler('product/updated', product => {
 				console.log('productUpdated', product)
 			})
